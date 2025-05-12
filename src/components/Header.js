@@ -14,6 +14,7 @@ export default function Header(logoutCallback, navigateToAddStory) {
       <ul class="nav-list">
         <li><a href="#/" class="nav-link">Beranda</a></li>
         <li><a href="#/tambah" class="nav-link">Tambah Cerita</a></li>
+        <li><a href="#/offline" class="nav-link">Story Offline</a></li>
         <li><button id="logout-btn" class="logout-btn">Logout</button></li>
       </ul>
     </nav>

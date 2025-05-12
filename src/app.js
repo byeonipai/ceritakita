@@ -11,6 +11,7 @@ import StoryListPresenter from './presenters/StoryListPresenter.js';
 import AddStoryPresenter from './presenters/AddStoryPresenter.js';
 import LoginPresenter from './presenters/LoginPresenter.js';
 import RegisterPresenter from './presenters/RegisterPresenter.js';
+import StoryOfflinePresenter from './presenters/StoryOfflinePresenter.js';
 
 import StoryModel from './models/StoryModel.js';
 import './style.css';
@@ -26,6 +27,7 @@ class App {
       '/tambah': this.handleAddStoryRoute.bind(this),
       '/login': this.handleLoginRoute.bind(this),
       '/register': this.handleRegisterRoute.bind(this),
+      '/offline': this.handleOfflineRoute.bind(this),
       '/404': this.handleNotFoundRoute.bind(this),
     };
 
@@ -123,6 +125,11 @@ class App {
     return presenter;
   }
 
+  handleOfflineRoute() {
+    const presenter = new StoryOfflinePresenter(this.container);
+    return presenter;
+  }
+
   async handleNotFoundRoute() {
     const view = new NotFoundView(this.container);
     await view.render();
@@ -178,7 +185,7 @@ class App {
   async registerServiceWorker() {
     if ('serviceWorker' in navigator) {
       try {
-        const registration = await navigator.serviceWorker.register('/sw.bundle.js'); // Update path to match Webpack output
+        const registration = await navigator.serviceWorker.register('/dist/sw.bundle.js'); // Update path to match Webpack output
         console.log('Service Worker registered:', registration);
 
         // Minta izin notifikasi
