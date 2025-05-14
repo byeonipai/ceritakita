@@ -185,7 +185,7 @@ class App {
   async registerServiceWorker() {
     if ('serviceWorker' in navigator) {
       try {
-        const registration = await navigator.serviceWorker.register('/dist/sw.bundle.js'); // Update path to match Webpack output
+        const registration = await navigator.serviceWorker.register('/sw.bundle.js'); // Corrected path
         console.log('Service Worker registered:', registration);
 
         // Minta izin notifikasi

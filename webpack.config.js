@@ -10,6 +10,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js', // Ensure service worker is output as sw.bundle.js
+    publicPath: '/', // Ensure correct public path for serving files
     clean: true, // Bersihkan folder dist sebelum build baru
   },
   resolve: {
@@ -62,7 +63,11 @@ module.exports = {
     compress: true,
     port: 3000,
     open: true,
-    hot: true,
+    hot: false, // Nonaktifkan Hot Module Replacement
     historyApiFallback: true,
+    client: {
+      overlay: true, // Tetap tampilkan error di browser
+      reconnect: false, // Nonaktifkan percobaan reconnect WebSocket
+    },
   },
 };

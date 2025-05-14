@@ -20,8 +20,8 @@ export default class StoryOfflineView {
             <ul>
                 ${stories.map(story => `
                     <li>
-                        <h3>${story.title}</h3>
-                        <p>${story.content}</p>
+                        <h3>${story.title || 'Untitled Story'}</h3>
+                        <p>${story.content || 'No content available.'}</p>
                     </li>
                 `).join('')}
             </ul>
