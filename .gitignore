@@ -1,3 +1,3 @@
 node_modules/
-dist/
+# dist/ <-- Remove this line if you need to verify the dist folder during development
 node_modules
